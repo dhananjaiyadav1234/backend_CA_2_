@@ -34,7 +34,7 @@ app.put("/update/:id",(req,res)=>{
     const updatedUser = req.body
 
     if(index == -1){
-        return res.status(404).json({message: "no user found"})
+        return res.status(404).json({message: "Email not found"})
     }
 
     users[index] = {...users[index],...updatedUser}
@@ -52,7 +52,7 @@ app.delete("/delUser/:id",(req,res)=>{
     const index = users.findIndex(u=>u.id === id)
 
     if(index == -1){
-        return res.status(404).json({message:"no user found"})
+        return res.status(404).json({message:"email not found"})
     }
 
     const deletedUser = users.splice(index,1)
